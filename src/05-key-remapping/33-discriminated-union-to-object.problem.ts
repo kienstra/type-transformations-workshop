@@ -13,7 +13,8 @@ type Route =
   | { route: "/admin/users"; search: {} };
 
 type RoutesObject = {
-  [ K in keyof Route ]: Route[ k  ]
+  [ R in Route as R['route'] ] : R['search']
+}
 
 type tests = [
   Expect<
