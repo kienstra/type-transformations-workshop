@@ -12,7 +12,8 @@ type Route =
   | { route: "/admin"; search: {} }
   | { route: "/admin/users"; search: {} };
 
-type RoutesObject = unknown;
+type RoutesObject = {
+  [ K in keyof Route ]: Route[ k  ]
 
 type tests = [
   Expect<
