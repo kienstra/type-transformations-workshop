@@ -7,7 +7,7 @@ interface Attributes {
 }
 
 type AttributeGetters = {
-  [K in keyof Attributes]: () => Attributes[K];
+  [P in keyof Attributes as `get${ Capitalize< P > }`]: () => Attributes[ P ];
 };
 
 type tests = [

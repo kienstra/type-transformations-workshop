@@ -10,7 +10,8 @@ const parser3 = {
   extract: () => true,
 };
 
-type GetParserResult<T> = unknown;
+type GetParser< T > = T extends Record< string, unknown > ? T[ keyof T ] : T;
+type GetParserResult< T > = GetParser< T > extends () => infer U ? U : never;
 
 type tests = [
   Expect<Equal<GetParserResult<typeof parser1>, number>>,

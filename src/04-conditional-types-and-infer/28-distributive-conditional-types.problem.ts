@@ -2,7 +2,7 @@ import { Equal, Expect } from "../helpers/type-utils";
 
 type Fruit = "apple" | "banana" | "orange";
 
-type AppleOrBanana = Fruit extends "apple" | "banana"
+type AppleOrBanana = "apple" | "banana" extends Fruit
   ? "apple" | "banana"
   : never;
 

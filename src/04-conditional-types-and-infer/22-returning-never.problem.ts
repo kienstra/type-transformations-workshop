@@ -1,6 +1,7 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type YouSayGoodbyeAndISayHello<T> = T extends "hello" ? "goodbye" : "hello";
+type HelloGoodbye = "hello" | "goodbye";
+type YouSayGoodbyeAndISayHello<T> = T extends HelloGoodbye ? Exclude< HelloGoodbye, T > : never;
 
 type tests = [
   Expect<Equal<YouSayGoodbyeAndISayHello<"hello">, "goodbye">>,
